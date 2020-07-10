@@ -1,0 +1,92 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "examplePhrases": [
+            "Alexa, open Richmond Hill waste collection",
+            "What week is it?",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Richmond",
+            "Hill",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "name": "Richmond Hill Waste Collection Schedule",
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        },
+        "en-CA": {
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "examplePhrases": [
+            "Alexa, open Richmond Hill waste collection",
+            "What week is it?",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Richmond",
+            "Hill",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "name": "Richmond Hill Waste Collection Schedule",
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
+          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "No special instructions",
+      "category": "ORGANIZERS_AND_ASSISTANTS",
+      "distributionCountries": [
+        "CA",
+        "US"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:576697798695:function:a446c665-bd8c-4074-a524-7a5c6a5cfd89:Release_1"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {},
+        "en-CA": {}
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
