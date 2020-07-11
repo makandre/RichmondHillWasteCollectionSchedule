@@ -2,7 +2,7 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
-const currentWeekNumber = require('current-week-number');
+const impl = require('./impl')
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -17,18 +17,18 @@ const LaunchRequestHandler = {
     }
 };
 
-const getWeek = () => {
-    
-    const date = new Date();
-    
-    // if Sunday, advance by 1 day to account for the week starting on Monday
-    if (date.getDay() === 0)
-        date.setDate(date.getDate() + 1);
-        
-    const week = currentWeekNumber(date);
-    const colour = week % 2 !== 0 ? 'blue' : 'yellow';
-    
-    return { week, colour };
+const ZoneIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ZoneIntent';
+    },
+    async handle(handlerInput) {
+        const speakOutput = await impl.zone(handlerInput.requestEnvelope);
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt('I\'m listening. Try again.')
+            .getResponse();
+    }
 };
 
 const CheckScheduleIntentHandler = {
@@ -36,11 +36,8 @@ const CheckScheduleIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckScheduleIntent';
     },
-    handle(handlerInput) {
-        
-        const week = getWeek();
-        
-        const speakOutput = `Week ${week.week} is a ${week.colour} week.`;
+    async handle(handlerInput) {
+        const speakOutput = await impl.checkSchedule(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -53,11 +50,8 @@ const CheckPickupIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckPickupIntent';
     },
-    handle(handlerInput) {
-        
-        const week = getWeek();
-        
-        const speakOutput = `It is garbage pickup week if you live in a ${week.colour} zone.`;
+    async handle(handlerInput) {
+        const speakOutput = await impl.checkPickup(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -72,7 +66,7 @@ const HelpIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say "What week is it" or "Is it garbage pickup week". Try it!';
+        const speakOutput = 'You can say "What week is it" or "Is it garbage pickup week". You can also tell me what zone you live in. Try it!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -102,6 +96,15 @@ const SessionEndedRequestHandler = {
         // Any cleanup logic goes here.
         return handlerInput.responseBuilder.getResponse();
     }
+};
+
+const SkillDisabledEventHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
+    },
+    async handle(handlerInput) {
+        await impl.deZone(handlerInput.requestEnvelope)
+    },
 };
 
 // The intent reflector is used for interaction model testing and debugging.
@@ -147,11 +150,13 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
+        ZoneIntentHandler,
         CheckScheduleIntentHandler,
         CheckPickupIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
+        SkillDisabledEventHandler,
         IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(
