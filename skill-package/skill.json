@@ -1,84 +1,16 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
-          "examplePhrases": [
-            "Alexa, open Richmond Hill waste collection",
-            "What week is it?",
-            "Is it garbage pickup week?"
-          ],
-          "keywords": [
-            "Richmond",
-            "Hill",
-            "waste",
-            "collection",
-            "schedule",
-            "garbage",
-            "recycle",
-            "recycling",
-            "pickup",
-            "day",
-            "days",
-            "week",
-            "weeks"
-          ],
-          "name": "Richmond Hill Waste Collection Schedule",
-          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
-          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
-        },
-        "en-CA": {
-          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
-          "examplePhrases": [
-            "Alexa, open Richmond Hill waste collection",
-            "What week is it?",
-            "Is it garbage pickup week?"
-          ],
-          "keywords": [
-            "Richmond",
-            "Hill",
-            "waste",
-            "collection",
-            "schedule",
-            "garbage",
-            "recycle",
-            "recycling",
-            "pickup",
-            "day",
-            "days",
-            "week",
-            "weeks"
-          ],
-          "name": "Richmond Hill Waste Collection Schedule",
-          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
-          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
-        }
-      },
-      "automaticDistribution": {
-        "isActive": false
-      },
-      "isAvailableWorldwide": false,
-      "testingInstructions": "No special instructions",
-      "category": "ORGANIZERS_AND_ASSISTANTS",
-      "distributionCountries": [
-        "CA",
-        "US"
-      ]
-    },
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:576697798695:function:a446c665-bd8c-4074-a524-7a5c6a5cfd89:Release_1"
+          "uri": "arn:aws:lambda:us-east-1:576697798695:function:a446c665-bd8c-4074-a524-7a5c6a5cfd89:Release_2"
         },
         "interfaces": []
       }
     },
     "events": {
       "endpoint": {
-        "uri": "arn:aws:lambda:us-east-1:576697798695:function:a446c665-bd8c-4074-a524-7a5c6a5cfd89:Release_1"
+        "uri": "arn:aws:lambda:us-east-1:576697798695:function:a446c665-bd8c-4074-a524-7a5c6a5cfd89:Release_2"
       },
       "subscriptions": [
         {
@@ -89,14 +21,84 @@
     "manifestVersion": "1.0",
     "privacyAndCompliance": {
       "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
       "locales": {
         "en-US": {},
         "en-CA": {}
       },
-      "containsAds": false,
-      "isExportCompliant": true,
-      "isChildDirected": false,
       "usesPersonalInfo": false
+    },
+    "publishingInformation": {
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "ORGANIZERS_AND_ASSISTANTS",
+      "distributionCountries": [
+        "CA",
+        "US"
+      ],
+      "isAvailableWorldwide": false,
+      "locales": {
+        "en-US": {
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
+          "examplePhrases": [
+            "Alexa, open Richmond Hill waste collection",
+            "I live in a blue zone",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Richmond",
+            "Hill",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b456/4ebc689b560e4916ae9e4abbe9ad527d/APP_ICON_LARGE?versionId=QeO8i.lg6WXwws7_4flgUL2i1HjjA.ew&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T180610Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1bcfcb966b5f4580946692b736afb9b27d903bff1bf106f0f17f22e44635ef70",
+          "name": "Richmond Hill Waste Collection Schedule",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4de2/aaef5cea6cac4129b607b56fc2aa99e1/APP_ICON?versionId=Ynedhfc9G.WJ3Ca1_.gcW0j0Wb57zBUH&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T180610Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8a95ca9d77ea34c6744da08685f0c82d13f8c80c4835ca6fb35add0d82c42bbd",
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "updatesDescription": "You can tell Alexa if you live in a blue zone or a yellow zone"
+        },
+        "en-CA": {
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Richmond Hill, Ontario, Canada.",
+          "examplePhrases": [
+            "Alexa, open Richmond Hill waste collection",
+            "I live in a blue zone",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Richmond",
+            "Hill",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b456/4ebc689b560e4916ae9e4abbe9ad527d/APP_ICON_LARGE?versionId=QeO8i.lg6WXwws7_4flgUL2i1HjjA.ew&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T180610Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1bcfcb966b5f4580946692b736afb9b27d903bff1bf106f0f17f22e44635ef70",
+          "name": "Richmond Hill Waste Collection Schedule",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4de2/aaef5cea6cac4129b607b56fc2aa99e1/APP_ICON?versionId=Ynedhfc9G.WJ3Ca1_.gcW0j0Wb57zBUH&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T180610Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8a95ca9d77ea34c6744da08685f0c82d13f8c80c4835ca6fb35add0d82c42bbd",
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "updatesDescription": "You can tell Alexa if you live in a blue zone or a yellow zone"
+        }
+      },
+      "testingInstructions": "No special instructions"
     }
   }
 }
